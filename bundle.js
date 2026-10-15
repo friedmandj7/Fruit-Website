@@ -5,13 +5,22 @@ fruitForm.addEventListener('submit', extractFruit);
 
 function extractFruit(e) {
     e.preventDefault()
+    if (e.target.fruitInput.value.length === 0) {
+    }
+    else {
     addFruit(e.target.fruitInput.value)
     e.target.fruitInput.value = ""
     }
+}
 
 function addFruit(fruit){
     const li = document.createElement('li')
     li.textContent = fruit
+    li.addEventListener('click', removeFruit)
     fruitList.appendChild(li)
+}
+
+function removeFruit(e) {
+    e.target.remove()
 }
 },{}]},{},[1]);
